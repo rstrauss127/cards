@@ -3,25 +3,37 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src="Octocat.png" className="App-logo" alt="logo" />
-        <p>
-          GitHub Codespaces <span className="heart">♥️</span> React
-        </p>
-        <p className="small">
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </p>
-      </header>
+      
+<main class="page-content">
+  <div class="card">
+    <div class="content">
+      <h2 class="title">Linkedin</h2>
+      <p class="copy">Check out my Linkedin</p>
+      <button class="btn">View Linkedin</button>
+    </div>
+  </div>
+  <div class="card">
+    <div class="content">
+      <h2 class="title">Goodreads</h2>
+      <p class="copy">I'm not a big on social media, but I keep my Goodreads up to date.</p>
+      <button class="btn" href='https://www.goodreads.com/user/show/4181830-becca'>Currently Reading</button>
+    </div>
+  </div>
+  <div class="card">
+    <div class="content">
+      <h2 class="title">Spotify</h2>
+      <p class="copy">Check out my favorite music!</p>
+      <button class="btn">My Favorites Playlist</button>
+    </div>
+  </div>
+  <div class="card">
+    <div class="content">
+      <h2 class="title">Other Links</h2>
+      <p class="copy">This will link to some data vizs I have built</p>
+      <button class="btn">More Stuff!!</button>
+    </div>
+  </div>
+</main>
     </div>
   );
 }
