@@ -3,6 +3,8 @@ import  '../App.css';
 const Flex = () => {
 return (
 <div className="App">   
+<h1 >Hi I'm Rebecca Strauss</h1>
+
 <main class="page-content">
   <div class="card">
     <div class="content">
