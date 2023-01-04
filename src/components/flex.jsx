@@ -14,7 +14,7 @@ return (
   <div class="card">
     <div class="content">
       <h2 class="title">Goodreads</h2>
-      <p class="copy">I'm not a big on social media, but I keep my Goodreads up to date.</p>
+      <p class="copy">I'm not  big on social media, but I keep my Goodreads up to date.</p>
       <a class="btn" href='https://www.goodreads.com/user/show/4181830-becca'>Currently Reading</a>
     </div>
   </div>
