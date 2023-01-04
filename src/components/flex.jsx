@@ -8,28 +8,28 @@ return (
     <div class="content">
       <h2 class="title">Linkedin</h2>
       <p class="copy">Check out my Linkedin</p>
-      <button class="btn">View Linkedin</button>
+      <a class="btn" href='https://www.linkedin.com/in/rlstrauss/'>View Linkedin</a>
     </div>
   </div>
   <div class="card">
     <div class="content">
       <h2 class="title">Goodreads</h2>
       <p class="copy">I'm not a big on social media, but I keep my Goodreads up to date.</p>
-      <button class="btn" href='https://www.goodreads.com/user/show/4181830-becca'>Currently Reading</button>
+      <a class="btn" href='https://www.goodreads.com/user/show/4181830-becca'>Currently Reading</a>
     </div>
   </div>
   <div class="card">
     <div class="content">
       <h2 class="title">Spotify</h2>
       <p class="copy">Check out my favorite music!</p>
-      <button class="btn">My Favorites Playlist</button>
+      <a class="btn" href='https://open.spotify.com/user/bloo935'>My Favorites Playlist</a>
     </div>
   </div>
   <div class="card">
     <div class="content">
-      <h2 class="title">Other Links</h2>
-      <p class="copy">This will link to some data vizs I have built</p>
-      <button class="btn">More Stuff!!</button>
+      <h2 class="title">Github</h2>
+      <p class="copy">This links to my github</p>
+      <a class="btn" href='https://github.com/rstrauss127'>My Github!!</a>
     </div>
   </div>
 </main>
