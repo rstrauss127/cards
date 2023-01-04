@@ -17,6 +17,11 @@ html, body {
 body {
   display: grid;
   place-items: center;
+  background-color: black;
+}
+
+h1 {
+  color: whitesmoke;
 }
 
 .page-content {
