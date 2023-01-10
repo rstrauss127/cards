@@ -1,7 +1,7 @@
-export const AxisBottom = ({ xScale, innerHeight, tickFormat }) => {
+export const AxisBottom = ({ xScale, innerHeight, tickFormat }) => 
     xScale.ticks().map((tickValue) => (
         <g 
-            className = "tick"
+            className = 'tick'
             key       = { tickValue }
             transform = { `translate(${xScale(tickValue)}, 0)` }
         >
@@ -15,4 +15,3 @@ export const AxisBottom = ({ xScale, innerHeight, tickFormat }) => {
             </text>
         </g>
     ));
-}
