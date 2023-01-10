@@ -53,7 +53,7 @@ const ChartIndex = () => {
         <AxisLeft yScale={yScale} />
         
         <text className="axis-label" x={innerWidth / 2} y={innerHeight + xAxisLabelOffset} textAnchor='middle'>
-          Population
+          Top 10 Countries By Population - 2019
         </text>
 
         <Marks data={data} xScale={xScale} yScale={yScale} xValue={xValue} yValue={yValue} toolTipFormat={XAxisTickFormat}/>
