@@ -6,7 +6,7 @@ export const Marks = ({ data, xScale, yScale, xValue, yValue, toolTipFormat }) =
             className="mark"
             key={yValue(d)}
             x={0}
-            yScale={yScale(yValue(d))}
+            y={yScale(yValue(d))}
             width={xScale(xValue(d))}
             height={yScale.bandwidth()}
         >
