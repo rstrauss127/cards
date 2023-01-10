@@ -1,4 +1,4 @@
-export const Maks = ({ data, xScale, yScale, xValue, yValue, toolTipFormat}) => {
+export const Marks = ({ data, xScale, yScale, xValue, yValue, toolTipFormat}) => {
     data.map(d => (
         <rect 
             className="mark"
