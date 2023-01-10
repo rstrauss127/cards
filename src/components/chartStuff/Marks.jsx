@@ -1,4 +1,6 @@
-export const Marks = ({ data, xScale, yScale, xValue, yValue, toolTipFormat}) => {
+import React from "react";
+
+export const Marks = ({ data, xScale, yScale, xValue, yValue, toolTipFormat }) => 
     data.map(d => (
         <rect 
             className="mark"
@@ -13,4 +15,3 @@ export const Marks = ({ data, xScale, yScale, xValue, yValue, toolTipFormat}) =>
             </title>
         </rect>
     ));
-}

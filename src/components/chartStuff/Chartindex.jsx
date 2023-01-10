@@ -1,12 +1,11 @@
 
-//import './App.css';
-import React, { useState, useCallback, useEffect } from "react";
-import { ReactDOM } from "react-dom";
-import { useData } from 'useData';
-import { Marks } from 'Marks';
-import { AxisLeft } from 'AxisLeft';
-import { AxisBottom } from 'AxisBottom';
-import { format, scaleBand } from 'd3';
+import './Chartindex.css';
+import React from "react";
+import { useData } from './useData';
+import { Marks } from './Marks';
+import { AxisLeft } from './AxisLeft';
+import { AxisBottom } from './AxisBottom';
+import { format, scaleBand, scaleLinear,max } from 'd3';
 
 // Declare height, width, margins of window
 const width  = 960;
@@ -29,7 +28,7 @@ const ChartIndex = () => {
   if(!data) {
     return <pre>('Loading')</pre>
   }
-
+  console.log(data);
   // Define height, width of visual
   const innerHeight = height - margin.top - margin.bottom;
   const innerWidth = width - margin.left - margin.right;
@@ -45,7 +44,7 @@ const ChartIndex = () => {
 
   // Declare x(quantitative) & y(qualitative) scalres using scaleBand() from d3
   const yScale = scaleBand().domain(data.map(yValue)).range([0,innerHeight]).padding(0.15);
-  const xScale = scaleBand().domain([0, max(data, xValue)]).range([0, innerWidth]);
+  const xScale = scaleLinear().domain([0, max(data, xValue)]).range([0, innerWidth]);
 
   return (
     <svg width={ width } height={ height }>
