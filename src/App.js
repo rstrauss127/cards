@@ -1,6 +1,6 @@
 import './App.css';
 import Flex from './components/flex';
-import ChartIndex from './components/chartStuff/Chartindex';
+import ChartIndex from './components/chartStuff/barChart/Chartindex';
 import { Route, Routes } from "react-router-dom"
 
 
