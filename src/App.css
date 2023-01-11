@@ -141,7 +141,6 @@ h1 {
   background-color: #0d0d0d;
 }
 .btn:focus {
-  outline: 1px dashed yellow;
   outline-offset: 3px;
 }
 
