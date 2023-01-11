@@ -1,9 +1,15 @@
-//import './App.css';
+import './App.css';
 import Flex from './components/flex';
+import ChartIndex from './components/chartStuff/Chartindex';
+import { Route, Routes } from "react-router-dom"
+
 
 function App() {
   return (
-    <Flex />
+    <Routes>
+      <Route path="/" element={<Flex />} />
+      <Route path="/dataviz" element={<ChartIndex />} />
+    </Routes>
   )
 
 }

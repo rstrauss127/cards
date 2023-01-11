@@ -1,4 +1,5 @@
 import  '../App.css';
+import { Link } from 'react-router-dom';
 
 const Flex = () => {
 return (
@@ -22,9 +23,9 @@ return (
   </div>
   <div class="card">
     <div class="content">
-      <h2 class="title">Spotify</h2>
-      <p class="copy">Check out my favorite music!</p>
-      <a class="btn" href='https://open.spotify.com/user/bloo935'>My Favorites Playlist</a>
+      <h2 class="title">Data Visualizations</h2>
+      <p class="copy">Interactive charts I've created using Node, React, & D3</p>
+      <Link className='btn' to="/dataviz">Data Visualizations</Link>
     </div>
   </div>
   <div class="card">

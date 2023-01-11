@@ -1,0 +1,25 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+}
+pre {
+    font-size: 7em;
+}
+.chartBody {
+    background-color: white;
+}
+
+.tick line { /*lines that are children of class tick*/
+    stroke: #C0C0BB
+}
+.tick text { /*all text that is children of class tick */
+    fill: #635f5d;
+}
+.mark {
+    fill: #137880;
+}
+.axis-label {
+    font-size: 2.5em;
+    fill: #635f5d;
+}
