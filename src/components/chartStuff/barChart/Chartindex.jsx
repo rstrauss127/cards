@@ -4,7 +4,7 @@ import React from "react";
 import { useData } from './useData';
 import { Marks } from './Marks';
 import { AxisLeft } from './AxisLeft';
-import { AxisBottom } from './AxisBottom';
+import { AxisBottom } from '../AxisBottom';
 import { format, scaleBand, scaleLinear,max } from 'd3';
 
 // Declare height, width, margins of window
@@ -50,7 +50,7 @@ const ChartIndex = () => {
     <div className='chartBody'>
       <svg width={ width } height={ height }>
         <g transform={`translate(${margin.left}, ${margin.top})`}>
-          <AxisBottom xScale={xScale} innerHeight={innerHeight} tickFormat={ XAxisTickFormat }/>
+          <AxisBottom xScale={xScale} innerHeight={innerHeight} tickFormat={ XAxisTickFormat } tickOffset={0}/>
           <AxisLeft yScale={yScale} />
           
           <text className="axis-label" x={innerWidth / 2} y={innerHeight + xAxisLabelOffset} textAnchor='middle'>
