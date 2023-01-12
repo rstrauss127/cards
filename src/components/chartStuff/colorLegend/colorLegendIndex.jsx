@@ -5,13 +5,13 @@ import { Legend } from "../Legend";
 import { Marks } from "../Marks";
 import { Lengend } from "../Legend";
 import { useData } from "../useData";
-import { format, range, scaleLinear, scaleOrdinal } from 'd3';
+import { format, range, scaleLinear, scaleOrdinal, svg } from 'd3';
 
 const width = 960;
 const height = 500;
 const margin = { top: 20, right: 200, bottom: 65, left:90 };
-const xAxisOffsetLabel = 50;
-const yAxisOffsetLabel = 40;
+const xAxisLabelOffset = 50;
+const yAxisLabelOffset = 40;
 const fadeOpacity = 0.2;
 
 const ColorLegend = () => {
@@ -58,8 +58,36 @@ const ColorLegend = () => {
         .domain(data.map(colorValue))
         .range(['#E6842A', '#137B80','#8E6C8A']);
 
-        
-    <AxisLeft yScale={yScale} innerWidth={innerWidth} tickOffset={5}/>
+    return(
+        <svg width={ width } height={ height }>
+            <g transform={`translate(${margin.left}, ${margin.top})`}>
+
+                <text className="axis-label" textAnchor="middle" transform={`translate(${-yAxisLabelOffset}, ${innerHeight})`}>
+                    { yAxisLabel }
+                </text>
+                <AxisLeft yScale={ yScale } innerHeight={ innerWidth } tickOffset={ 5 } />
+                
+                <text className="axis-label" textAnchor="middle" x={ innerWidth / 2 } y={ innerHeight + xAxisLabelOffset}>
+                    { xAxisLabel }
+                </text>
+                <AxisBottom xScale={ xScale } innerHeight={ innerHeight } tickFormat={ xAxisTickFormat } tickOffset={ 5 }/>
+            
+                <text className="axis-label" textAnchor="middle" x={ 35 } y={ -25 }> 
+                    { LegendLabel }
+                </text>
+                <Legend 
+                    tickSpacing={ 22 }
+                    tickSize={ circleRadius }
+                    tickTextOffset={ 12 }
+                    colorScale={ colorScale }
+                    onHover={ setHoveredValue }
+                    hoveredValue={ hoveredValue}
+                    fadeOpacity={ fadeOpacity }
+                />
+            </g>
+        </svg>
+    )    
+
 
 }
 
