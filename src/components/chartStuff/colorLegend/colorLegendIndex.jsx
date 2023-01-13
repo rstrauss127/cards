@@ -1,31 +1,31 @@
+//import "../barChart/Chartindex.css";
 import React, { useState } from "react";
-import { AxisLeft } from "../AxisLeft";
-import { AxisBottom } from "../AxisBottom";
-import { Legend } from "../Legend";
-import { Marks } from "../Marks";
-import { Lengend } from "../Legend";
-import { useData } from "../useData";
-import { format, range, scaleLinear, scaleOrdinal, svg } from 'd3';
+import { AxisLeft } from "./AxisLeft";
+import { AxisBottom } from "./AxisBottom";
+import { Legend } from "./Legend";
+import { Marks } from "./Marks";
+import { useData } from "./useData";
+import { format, scaleLinear, scaleOrdinal, extent } from 'd3';
+
 
 const width = 960;
 const height = 500;
-const margin = { top: 20, right: 200, bottom: 65, left:90 };
+const margin = { top: 20, right: 200, bottom: 65, left: 90 };
 const xAxisLabelOffset = 50;
 const yAxisLabelOffset = 40;
 const fadeOpacity = 0.2;
 
 const ColorLegend = () => {
-    // Get data if no data show Loading pre screen
     const data = useData();
+    // Set state for hovered values
+    const [hoveredValue, setHoveredValue] = useState(null);
+    // Get data if no data show Loading pre screen
     if(!data) {
         return <pre>('Loading...')</pre>;
     }
 
-    // Set state for hovered values
-    const [hoveredValue, setHoveredValue] = useState(null);
-
-    const innerWidth   = height - margin.top  - margin.bottom;
-    const innerHeight  = width  - margin.left - margin.right;
+    const innerHeight   = height - margin.top  - margin.bottom;
+    const innerWidth  = width  - margin.left - margin.right;
     const circleRadius = 7;
     // Declare accessor functions
     const xValue = d  => d.sepal_length;
@@ -40,7 +40,7 @@ const ColorLegend = () => {
 
     // Declare decimal formatting & formatter
     const siFormatter = format('.2s')
-    const xAxisTickFormat = siFormatter(tickValue);
+    const xAxisTickFormat = (tickValue) => siFormatter(tickValue);
 
     // Define xScale. extent() is equivelkent to [min(data, xValue), max(data, xValue)]
     const xScale = scaleLinear()
@@ -59,33 +59,64 @@ const ColorLegend = () => {
         .range(['#E6842A', '#137B80','#8E6C8A']);
 
     return(
-        <svg width={ width } height={ height }>
-            <g transform={`translate(${margin.left}, ${margin.top})`}>
+        <div className='chartBody'>
+            <svg width={ width } height={ height }>
+                <g transform={`translate(${margin.left}, ${margin.top})`}>
+                    <AxisBottom xScale={ xScale } innerHeight={ innerHeight } tickFormat={ xAxisTickFormat } tickOffset={ 5 }/>
 
-                <text className="axis-label" textAnchor="middle" transform={`translate(${-yAxisLabelOffset}, ${innerHeight})`}>
-                    { yAxisLabel }
-                </text>
-                <AxisLeft yScale={ yScale } innerHeight={ innerWidth } tickOffset={ 5 } />
-                
-                <text className="axis-label" textAnchor="middle" x={ innerWidth / 2 } y={ innerHeight + xAxisLabelOffset}>
-                    { xAxisLabel }
-                </text>
-                <AxisBottom xScale={ xScale } innerHeight={ innerHeight } tickFormat={ xAxisTickFormat } tickOffset={ 5 }/>
-            
-                <text className="axis-label" textAnchor="middle" x={ 35 } y={ -25 }> 
-                    { LegendLabel }
-                </text>
-                <Legend 
-                    tickSpacing={ 22 }
-                    tickSize={ circleRadius }
-                    tickTextOffset={ 12 }
-                    colorScale={ colorScale }
-                    onHover={ setHoveredValue }
-                    hoveredValue={ hoveredValue}
-                    fadeOpacity={ fadeOpacity }
-                />
-            </g>
-        </svg>
+                    <text className="axis-label" textAnchor="middle" transform={`translate(${-yAxisLabelOffset}, ${innerHeight / 2}) rotate(-90)`}>
+                        { yAxisLabel }
+                    </text>
+                    <AxisLeft yScale={ yScale } innerWidth={ innerWidth } tickOffset={ 5 } />
+                    
+                    <text className="axis-label" textAnchor="middle" x={ innerWidth / 2 } y={ innerHeight + xAxisLabelOffset}>
+                        { xAxisLabel }
+                    </text>
+
+                    <g transform={`translate(${innerWidth + 50}, 60)`}>
+                        <text className="axis-label" textAnchor="middle" x={ 35 } y={ -25 }> 
+                            { LegendLabel }
+                        </text>
+                        <Legend 
+                            tickSpacing={ 22 }
+                            tickSize={ circleRadius }
+                            tickTextOffset={ 12 }
+                            colorScale={ colorScale }
+                            onHover={ setHoveredValue }
+                            hoveredValue={ hoveredValue}
+                            fadeOpacity={ fadeOpacity }
+                        />
+                    </g>
+
+
+                    <g opacity={ hoveredValue ? fadeOpacity: 1 }>
+                        <Marks 
+                            data  ={ data }
+                            xScale={ xScale }
+                            yScale={ yScale }
+                            xValue={ xValue }
+                            yValue={ yValue }
+                            colorScale = { colorScale }
+                            colorValue = { colorValue }
+                            toolTipFormat={ xAxisTickFormat}
+                            circleRadius= { circleRadius }
+                        />
+                    </g>
+                    
+                    <Marks 
+                            data  ={ filteredData }
+                            xScale={ xScale }
+                            yScale={ yScale }
+                            xValue={ xValue }
+                            yValue={ yValue }
+                            colorScale = { colorScale }
+                            colorValue = { colorValue }
+                            toolTipFormat={ xAxisTickFormat}
+                            circleRadius= { circleRadius }            
+                    />
+                </g>
+            </svg>            
+        </div>
     )    
 
 
