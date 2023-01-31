@@ -25,7 +25,7 @@ return (
     <div class="content">
       <h2 class="title">Data Visualizations</h2>
       <p class="copy">Interactive charts I've created using Node, React, & D3</p>
-      <Link className='btn' to="/dataviz">Data Visualizations</Link>
+      <Link className='btn' to="/colorLegend">Data Visualizations</Link>
     </div>
   </div>
   <div class="card">
