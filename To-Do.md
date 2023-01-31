@@ -1,0 +1,3 @@
+- Refactor useData.js to be reusable by all
+- write descriptions for each data visulaztion, include data source
+- create react component for axis labels
