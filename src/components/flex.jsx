@@ -27,6 +27,7 @@ return (
       <p class="copy">Interactive charts I've created using Node, React, & D3</p>
       <Link className='btn' to="/colorLegend">Interactive Legend</Link>
       <Link className='btn' to="/barChart">Bar Chart</Link>
+      <Link className='btn' to="/map">Map</Link>
 
     </div>
   </div>
